@@ -1,9 +1,18 @@
+//server setup
+
 const express = require('express');
 const app = express();
-const port = 3000; // or any port you prefer
+const path = require('path');
+const port = 3000;
 
-// Serve static files from the 'public' folder
+
 app.use(express.static('public'));
+
+
+app.use((req, res, next) => {
+    
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
