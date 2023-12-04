@@ -1,19 +1,16 @@
-//server setup
-
 const express = require('express');
-const app = express();
 const path = require('path');
+
+const app = express();
 const port = 3000;
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static('public'));
-
-
-app.use((req, res, next) => {
-    
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
 });
 
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });

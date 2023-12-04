@@ -14,10 +14,10 @@ body {
     box-sizing: border-box;
 }
 
-.question {
-    display: none; 
+.question { 
     margin-bottom: 20px;
     font-size: 30px; 
+    margin-top: 15%;
 }
 
 
@@ -39,4 +39,22 @@ label {
     padding: 10px 20px;
     margin: 0 5px;
     cursor: pointer;
+}
+#submit{
+    margin-top: 5%;
+    background-color:darkgreen; 
+    color: white;
+    cursor: pointer;
+    padding: 20px 30px;
+
+}
+.results{
+    font-size: 40px;
+}
+.correct-answer-text {
+    color: red;
+}
+a {
+    text-decoration: none;
+    color: white;
 }
