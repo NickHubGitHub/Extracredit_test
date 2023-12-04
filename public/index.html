@@ -124,9 +124,34 @@
             }
             showQuestion(currentQuestion);
         }
-        function submitQuiz() {
-        window.location.href = 'results.html';
+    // calculate the correct answers for each question
+        function calculateScore() {
+        var correctAnswers = ["a", "c", "a", "d", "a"]; 
+        var userAnswers = [];
+
+        for (var i = 1; i <= 5; i++) {
+            var radioButtons = document.getElementsByName("q" + i);
+            for (var j = 0; j < radioButtons.length; j++) {
+                if (radioButtons[j].checked) {
+                    userAnswers.push(radioButtons[j].value);
+                    break;
+                }
+            }
         }
+
+        var score = 0;
+        for (var i = 0; i < correctAnswers.length; i++) {
+            if (userAnswers[i] === correctAnswers[i]) {
+                score++;
+            }
+        }
+
+        return (score / correctAnswers.length) * 100;
+    }
+    function submitQuiz() {
+        var score = calculateScore();
+        window.location.href = 'results.html?score=' + score;
+    }
     </script>
 </body>
 <footer>

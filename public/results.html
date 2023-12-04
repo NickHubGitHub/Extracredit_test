@@ -6,7 +6,7 @@
 </head>
 <body>
     <a href="index.html">
-        <h1 class="results"> Your score:  </h1>
+        <h1 class="results"> Your score: <span id="score"></span> </h1>
     
         <h2>Click here to restart</h2>
     </a>
@@ -89,5 +89,15 @@
              Neil deGrasse Tyson
         </label>
     </div>
+    <script>
+    //fetches the score from index.html
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const scoreElement = document.getElementById('score');
+            scoreElement.textContent = score || '0';
+        });
+    </script>
 </body>
 </html>
